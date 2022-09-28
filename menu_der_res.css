@@ -1,0 +1,218 @@
+
+/* 
+
+                          CSS Menu Déroulant 
+
+*/
+
+
+
+/* pour reduire le margin par default du navigateur et changement de police */ 
+body {
+    font-family: comic sans MS;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Etirer l élément nav à la taille du body et changement de couleur de fond */
+nav {
+    width: 100%;
+    background-color: #424558;
+}
+
+/* cible seulements les éléments ul qui sont enfant direct de l élément nav  et reduit le margin par default du navigateur  */
+nav > ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* cible élément ul et le pseudo élément after car les li flotte a gauche et non la liste ul */
+nav > ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* mettre le menu principal en ligne */ 
+nav > ul > li {
+    float: left;
+    position: relative;
+}
+
+
+/* cible au survol de la sourie les liens du menu et reduit de 5px, pour compenser l'épeisseur de la bordure top  */
+nav > ul > li:hover a {
+    padding: 15px 30px 20px 30px;
+}
+/*  cible élément li et enleve les puces */
+nav li {
+    list-style-type: none;
+}
+
+/* pour cacher le sous menu  */
+.submenu {
+    display: none;
+}
+
+/* cache élément input et label */
+nav input[type=checkbox] {
+    display: none;
+}
+nav label {
+    display: none;
+}
+
+/* cible élément a dans le nav, change le display des élément a */
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 20px 30px;
+    color: #fff;
+}
+
+/*  SOUS MENU   */ 
+
+/* cible les sous menu quand l user passe sa sourie sur le munu et affiche le css correspondant
+affiche les menu en ligne, affiche les sous menu exactement sous les menu et a gauche avec un interieur de marge 0, 
+visble au dessus de tout ( en cas de deco en fond ou d une oucleur de fond )
+*/
+nav li:hover .submenu {
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding: 0px;
+    z-index: 1000;
+}
+
+/* plus besoin du hover car les li des sous menu apparraissent en même temps */
+/* cible la liste des sous menu , et affiche une bordure en dessous de toutes */
+.submenu li {
+    border-bottom: 1px solid #CCC;
+}
+
+/* cible les liens  */
+.submenu li a {
+    padding:  15px 30px;
+    font-size: 13px;
+    color: #222538;
+    width: 270px;
+}
+
+/* ########### */
+
+/* bordure haute au survol de la sourie et couleur de fond légèrement transparante */ 
+.menu-html:hover {
+    border-top: 5px solid #e44d26;
+    background-color: RGBa(228, 77, 38, 0.15);
+}
+
+.menu-css:hover {
+    border-top: 5px solid #0070bb;
+    background-color: rgba(000, 112, 192, 0.15);
+}
+
+.menu-js:hover {
+    border-top: 5px solid #f1dc4f;
+    background-color: rgba(241, 211, 79, 0.15);
+}
+
+.menu-jquery:hover {
+    border-top: 5px solid #12f025;
+    background-color: rgba(26, 223, 36, 0.15);
+}
+
+.menu-php:hover {
+    border-top: 5px solid #bc0ecc;
+    background-color: rgba(211, 16, 169, 0.15);
+}
+
+.menu-contact:hover {
+    border-top: 5px solid #BBB;
+    background-color: rgba(220, 220, 220, 0.15);
+}
+
+/* ########### */
+
+/* 
+ajout de couleur a nos sous menu avec 2 nuances 
+une couleur pls clair et plus foncé quand il ya survol de la sourie 
+*/
+
+.menu-html .submenu {
+    background-color: RGB(230, 100, 40);
+}
+
+.menu-css .submenu {
+    background-color: RGB(000, 160, 240);
+}
+
+.menu-js .submenu {
+    background-color: RGB(250, 215, 100);
+}
+
+.menu-php .submenu {
+    background-color: RGB(200, 20, 140);
+}
+
+/* ########### */
+
+/* cible les éléments li du sous menu et ajoute une couleur plus foncé au survol de la sourie */
+/* texte de sliens en blanc et gars pour tous les sous menu */
+.submenu li:hover a {
+    color: #EEE;
+    font-weight: bold;
+} 
+
+.menu-html .submenu li:hover {
+    background-color: RGB(210, 77, 60);
+}
+
+.menu-css .submenu li:hover {
+    background-color: RGB(000, 115, 200);
+}
+
+.menu-js .submenu li:hover {
+    background-color: RGB(200, 165, 75);
+}
+
+.menu-php .submenu li:hover {
+    background-color: RGB(150, 10, 110);
+}
+
+/* ########### */
+
+/* partie responsive  */
+
+/* utilisation des media querris et la regle css @  */
+/* affichage d'un menu diférent dès que les écrans sont infèrieurs à 780px */ 
+/* les sous menu cette fois occuperont 100% de largeur avec un peu despacement entre les textes qui seront centrés */
+
+nav input[type=checkbox]:checked ~ ul {
+    display: block;
+}
+
+@media screen and (max-width: 780px)  {
+    .menu-mobile {
+        display: block;
+        color: #FFF;
+        background-color: RGBa(29, 197, 151, 0.97);
+        text-align: center;
+        padding: 12px 0px;
+    }
+    
+    nav ul {
+        display: none;
+    }
+    nav ul li, nav ul li a {
+        width: 100%;
+        text-align: center;
+    }
+    nav ul li a, nav ul li:hover a {
+        padding: 10px 0px;
+    }
+    nav li:hover .submenu {
+        display: block;
+        position: static;
+    }
+}

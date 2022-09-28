@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Le mode strict</title>
+
+    </head>
+    <body>
+        <h1>Le mode strict</h1>
+        <nav>
+            <ul>
+                <li>Intérêt du mode strict
+                    <ul>
+                        <li>Il est un langage plus strict que javascript. Il relève des erreurs que js ne relevera dans un grand script. Il ne s'executera pas</li>
+                        <li>exemples :
+                            <ul>
+                                <li>Une variable déclaré sans le mot clé var</li>
+                                <li>Une valeur assignée à une variable ou une propriété qui est en lecture seule</li>
+                                <li>Supprimer une variable ou une propriété qui n' est pas suprimable </li>
+                                <li>Définir une variable ou une propriété plus d'une fois</li>
+                                <li>Dupliquer le nom d'un paramètre</li>
+                                <li>ou quand on tente d'utiliser une syntaxe octale ou des caractères d'échappements</li>
+                            </ul>
+                        </li>
+                        <li>La méthode eval n'est pas authoriser à créer des variables depassant sa porpre portée</li>
+                    </ul>
+                </li>
+                <li>Utilisation
+                    <ul>
+                        <li>De manière globale ou locale. On utilise l'expression use strict</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <p id="varX"></p>
+        <p id="varY"></p>
+        <script>
+            
+            var afficheX = document.getElementById('varX');
+            var afficheY = document.getElementById('varY');
+
+        // le mode strict détecte l'erreur sur la déclaration de y sans le mot clé var 
+        // x sera quand meme afficher car le script sera stopper à partir de l'erreur
+            //c'use strict';
+            var x = 5;
+            afficheX.innerHTML = x;
+            // y = 10;           
+            // afficheY.innerHTML = y;
+
+    // portée locale 
+        // en uilisant pas le mode strict dans la 2eme fonction. En lecture normale les 2 valeurs seraient affichés
+        // alors que la variable est déclarée sans le mot clé var         
+
+            function affA() {
+                'use stict';
+                var a = 5;
+                alert(a);
+            }
+            function affZ() {     
+                // 'use strcit';          
+                Z = 10;
+                alert(Z);
+            }
+
+            affA();
+            affZ();
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le DOM HTML</title>
+</head>
+<body>    
+    <h1 id="gros_titre">Découverte du DOM</h1>
+    <nav>
+        <ul>
+            <li>Créer et modifier des éléments du DOM <br>
+                <ul>
+                    <li>Créer un élément
+                        <ul>
+                            <li>createElement</li>
+                            <li>createTextNode</li>
+                        </ul>
+                    </li>
+                    <li>Supprimer un élément</li>
+                        <ul>
+                            <li>removeChild</li>
+                            <li>replaceChild</li>
+                        </ul>
+                    <li>Modifier un élément</li>
+                </ul>
+            </li>
+            <li>Naviguer dans le DOM
+                <ul>
+                    <li>parentNode</li>
+                    <li>ChildNode <br>
+                        <p>Permet d accéder au noeud enfant d'un certain noeud <br>
+                        renvoi un tableau, on pourra donc recupérer tous les enfants avec une boucle <br>
+                        attention à l index, il faut compter les espaces
+                        </p>
+                    </li>
+                    <li>NodeValue</li>
+                    <li>firstChild</li>
+                    <li>lastChild</li>
+                    <li>nextSibling
+                        <p>Permet d'accéder au noeud frère suivant le noeud ciblé</p>
+                    </li>
+                    <li>previewsSibling
+                        <p>Permet d'accéder au noeud frère précédant le noeud ciblé</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <h2 id="titre2">Côtés pratique</h2>
+
+    <div id="partie1">
+        <h1 id="titre3">titre test à supprimer</h1>
+        <p class="para">Du texte et <a href="http://pierre-giraud.com">un lien</a></p>
+        <p class="para">Un deuxieme paragraphe</p>
+        <h1 id="titre3">Titre à modifier</h1>
+    </div>
+
+<!-- Naviguer dans le DOM -->
+
+    <div id='partie2'>
+
+        <p class="para2">Du texte</p>
+        <p class="para2">Un deuxieme <strong>paragraphe</strong></p>
+    </div>
+    
+
+    <script>
+
+// créer un élément 
+        var newPara = document.createElement('p');
+        newPara.id = 'nouveau';
+    // pour insérer du texte dans le noeud crée p
+        var texte = document.createTextNode('Inséré');
+    // attache le texte au noeud p 
+        newPara.appendChild(texte);
+    // selectionne le premier élément portant la classe para 
+        var para1 = document.querySelector('.para');
+    // pour insérer un paragraphe entre le titre et le premier paragraphe
+        var partie1 = document.getElementById('partie1');
+        partie1.insertBefore(newPara, para1);
+
+// supprimer un élément 
+        var titre2 = document.getElementById('titre2');
+        var partie1 = document.getElementById('partie1');
+        
+    // supprime le titreTest
+        // parent.removeChild(titre2);
+
+        var titre3 = document.getElementById('titre3')
+        var nouveauTitre = document.createElement('h2');
+        nouveauTitre.id = 'titre_moyen';
+        nouveauTitre.innerHTML = 'Titre modifié en js';
+
+        partie1.replaceChild(nouveauTitre, titre3);
+
+// Naviguer dans le DOM
+    // parentNode 
+        // sélectionne le paragraphe avec la classe para2
+            var p = document.querySelector('.para2');
+        // sélectionne l élément parent du noeud p 
+            var div = p.parentNode;
+        // applique un style 
+            div.style.color = 'orange';
+
+    // ChildNode        
+        // cible l'élément h1 ( gros_titre )
+        var h1 = document.body.childNodes[1];
+        // console.log(h1);
+        // cible l'élément p contenu dans la div partie2
+        var b = document.getElementById('partie2');
+        var p1 = b.childNodes[1];
+        // console.log(p1);
+    //NodeValue
+        // pour sélectionner la valeur de l élément p car il est un noeud de type texte l'élément p
+        var texte = p1.childNodes[0].nodeValue;
+        // console.log(texte);
+    
+    // firstChild et lastChild
+        var p2 = document.querySelectorAll('.para2')[1];
+        // cible les éléments 
+        var premier = p2.firstChild;
+        var dernier = p2.lastChild;
+        // cible la valeur texte
+
+        var inner2 = dernier.childNodes[0].nodeValue;
+        var inner1 = premier.nodeValue;
+        // var inner2 = dernier.innerHTML;
+        // var inner3 = premier.innerHTML;
+
+        console.log(('Contenu du premier enfant : ' + inner1 + '\nContenu du dernier enfant : ' + inner2));
+
+    // nextSibling
+        var titre2 = document.getElementById('titre2');
+
+        var div = titre2.nextSibling.nextSibling;
+
+        // div.innerHTML = '<p>div totalement modifié</p>';
+    // previewsSibling
+        
+
+    </script>
+</body>
+</html>

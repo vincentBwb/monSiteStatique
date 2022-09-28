@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>les cookies</title>
+</head>
+<body>
+    
+    <p id="cook"></p>
+
+    <h1>Les cookies</h1>
+    <nav>
+        <ul>
+            <li>Le rôle des cookies
+                <ul>
+                    <li>Petit fichier qui va contenir généralement une seule donnée qui va être stocker sur l 'ordinateur du visiteur</li>
+                    <li>Permet de conserver des infos et de s en reservire</li>
+                    <li>Normalement une fois la page web envoyée, il n y a aucun moyen de se souvenir des données envoyées par l utilisateur</li>
+                    <li>On va pouvoir se rappeler du nom d'utilsateur, ou des préférences qu il a indiqué par exemple</li>
+                    <li>Ils ne sont pas dangereux mais si un programme malveillant arrive à intercepter les infos qu il contient ( infos sensibles comme un password )</li>
+                    <li>Il ne dure pas éternellement car on va lui attribuer une durée de vie. Mais l'utilisateur peut également en supprimer, il faut donc en tenir compte</li>
+                        
+                </ul>
+            </li>
+            <li>créer un cookie en js
+                <ul>
+                    <li>On utilise la méthode cookie de l'objet document</li>
+                    <li>Il faut au minimum lui donner un nom et une valeur</li>
+                    <li>Une duré de vie : 
+                        <ul>
+                            <li>Avec le mot clé : expires avec une valeur date valable en js ex :<br>
+                                expire = Sun, 17 Jul 2016 12:00:00 UTC</li>
+                            <li>Par défault à l arret de l ordinateur de l'utilisateur. </li>
+                        </ul>
+                    </li>
+                    <li>On peut également preciser un chemin ou un répertoire ou il va être lu et utiliser
+                        <ul>
+                            <li>avec le mot clé : path = / -> qui indique le cookie est valable sur tout le domaine ou site</li>
+                            <li>Par défault le cookie appartient à la page dans laquelle il a été crée</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Récupérer et lire les informations contenues dans un cookie
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Modifier ou supprimer un cookie
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+
+// Créer des cookies
+        /* document.cookie = 'prenom1=Vincent; expires=Sun, 14 Aug 2021 12:00:00 UTC; path=/';
+        document.cookie = 'prenom2=Victor; expires=Sun, 17 Jul 2022 12:00:00 UTC; path=/';
+        
+        document.cookie = 'prenom1=Julia; expires=Sun, 17 Jul 2016 12:00:00 UTC; path=/';
+        document.cookie = 'prenom2=Victor; expires=Sun, 3 Jul 2016 12:00:00 UTC; path=/'; */
+        
+
+        var c = document.cookie;
+        document.getElementById('cook').innerHTML = c;     
+        
+// Créer des cookies avec des fonctions 
+    // creer cookie
+        function creerCookie(nom, valeur, jour) {
+            // si les jours ont bien été définis
+            if (jour) {
+                // on crée un objet date stockant la date actuelle 
+                var date = new Date();
+                // on définit la date d'expiration du cookie ( calcul dans combiens de milliseonde le cookie va expiré)
+                date.setTime(date.getTime() + (jour*24*60*60*1000));
+                // on met la date au bon format pour un cookie 
+                var exp = '; expires=' + date.toGMTString();
+            }
+            // si les jours n'ont pas été définis, pas besoin de calcul
+            else {
+                var exp ='';
+            }
+        // creation du cookie un nom, une valeur et une date d expiration 
+            document.cookie = nom + '=' + valeur + exp +',path=/';
+        }
+
+        function lireCookie(nom) {
+            // on récupère le nom du cookie et le signe '='
+            var nomEtEgal = nom + '=';
+            // récupère tous les cookies dans un tableau 
+            var cTableau = document.cookie.split(';');
+            // parcourt le tableau crée
+            for(var i=0; i<cTableau; i++) {
+                // on récupère tous les noms et valeurs des cookies 
+                var c = cTableau[i];
+                // on supprime les espaces potentiels dans c jusqu'à tomber sur le nom du cookie 
+                while ( c.charAt(0) == ' ') {
+                    c = c.substring(1, c.length);
+                }
+                if ( c.indexOf(nomEtEgal) == 0) {
+                    return c.substring(nomEtEgal.length, c.length);
+                }                
+            }
+            // si nom du cookie non trouvé, il n'existe pas 
+            return null
+        }
+
+        function supprimerCookie(nom) {
+            /*On donne le nom du cookie à supprimer, puis on utilise créerCookie() pour indiquer une date d'expiration passée*/
+            creerCookie(nom,'',-1);
+        }
+
+// essai 
+        /* // on crée deux cookies 
+        creerCookie('Cookie1','Je suis le premier cookie', 7);
+        creerCookie('Cookie2','Je suis un autre cookie');
+
+        // supprimerCookie('Cookie1');
+
+        var affiche = document.getElementById('cook');
+        affiche.innerHTML = 'Valeur : ' + lireCookie('cookie1'); */
+
+    </script>
+
+</body>
+</html>

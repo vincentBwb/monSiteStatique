@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les objets en Javascript</title>
+</head>
+<body>
+    <h1></h1>
+    <nav>
+        <ul>
+            <li>*************** Valeurs primitives et Objet natifs **************** 
+                <ul>
+                    <li>OBjet Natifs
+                        <ul>
+                            <li>OBjets qui possèdent déja leurs méthodes et propriétés</li>
+                            <li>Objet String, objet number, objet array et bolleen</li>
+                        </ul>
+                    </li>
+                    <li>VAleu primitive :
+                        <ul>
+                            <li>var primitive = "je suis une valeur primlitive"</li>
+                        </ul>
+                    </li>
+                </ul>                        
+            </li>
+            <li>***************** Objet string  ***********************
+                <ul>
+                    <li>var chaine = new Strting("je suis un objet")</li>
+                    <li>Méthode sur l objet string : <br> .length , <br>  .toUppercase() </li>
+                    <li>Pour créer un objet : <br>
+                        var obj = new Object(); </li>
+                    <li>Créer des méthodes à cet objet : <br>
+                        obj.prenom = "vincent"; <br> 
+                        obj.nom = "martinez"; <br>
+                        obj.age = 25; </li>
+                    <li>Créer un objet de façon litérale <br>
+                        var moi = { <br>
+                            prenom: "vincent", <br>
+                            nom: "martinez", <br>
+                            age: 25, <br><br>
+
+                            id: function() { <br>
+                                return this.prenom + ' ' + this.nom; <br>
+                            } <br>
+                        };
+                    </li>
+                    <li>Créer une fonction 'constructeur' : <br>
+                        Function Identite(p, n, a) { <br>
+                            this.prenom = p; <br>
+                            this.nom = n;  <br>
+                            this.age = a; <br>
+                        } <br><br>
+                        var pierre = new Identite("Pierre", "Durand", 25);   <br>
+                        var victor = new Identite("Victor", "Coco", 23); <br><br>
+
+                        Age de pierre : pierre.age <br>
+                        Age de Victor : ' + victor.age <br>
+                    </li>
+                </ul>
+            </li>
+            <li>************** objet natif : array ************
+                <ul>
+                    <li>Propriété length et boucle for pour parcourir un tableau <br>
+                    Méthode : <br>
+                    <ul>
+                        <li>La methode push et pop ajoute et supprime des éléments en fin de tableau et retourne des infos relatives aux tableaux</li>
+                        <li>Méthode push() <strong>retourne un nombre</strong><br>
+                            Pour ajouter des éléments en fin de tableau et retourne la nouvelle taille du tableau
+                        </li>
+                        <li>Méthode pop() <strong>retourne une chaine de caractères</strong><br>
+                            Pour supprimer des éléments en fin de tableau
+                        </li>
+                        <li>La méthode shift() et onShift() ajoute et supprime des éléments en début de tableau</li>
+                        <li>Méthode shift() <strong>retourne une chaine de caractères</strong><br>
+                            Pour supprimer des éléments en début de tableau
+                        </li>
+                        <li>Méthode onShift() <strong>retourne un nombre</strong><br>
+                    Pour ajouter des éléments en début de tableau
+                        </li>
+                        <li>Méthode splice() <strong>retourne un tableau</strong><br>
+                            Ajoute des éléments dans un tableau à une place précise, en indiquant comme argument l index à partir duquel insérer les éléments. <br>
+                            Attention -> arg splice(1, 0, "élément", "élément à insérer") <br>
+                            Index 1 -> position 2. Les éléments seront inséres juste avant le 2ème élément 
+                        </li>
+                        <li>Méthode sort() <strong>concidère toutes les valeurs comme des chaines de caractères, pour trier des nombres on utilisera en plus la fonction compare()</strong><br>
+                            Classe les éléments de notre tableau dans l ordre alphabétique de leur valeurs<br>
+                            Les majuscules sont pris en compte
+                        </li>
+                        <li>Méthode reverse() <strong>retourne un tableau</strong><br>
+                            Inverse l ordre des éléments d'un tableau
+                        </li>
+                        <li>Méthode join() <strong>retourne les différentes valeurs d'un tableau sous forme de chaine de caractères</strong><br>
+                            Elle ne modifie pas le tableau
+                        </li>
+                        <li>Méthode slice() <strong>retourne un tableau</strong><br>
+                            Créer un nouveau tableau à partir un 1er tableau de base . <br>
+                            Cette méthode a besoin de 2 paramètres, une position de départ et de fin. ou un para, à ce moment là il coupera le tableau en conservant les éléments jusqu à la fin <br>
+                        </li>
+                        <li>Méthode concat() <strong>retourne un tableau</strong><br>
+                            Permet de concaténer plusieurs tableaux ensemble
+                        </li>
+                    </ul>
+    <p>
+        *************** objet littéral ***************** <br>
+        Parcourir un objet littéral avec la boucle for in <br>
+        var prenoms = { <br>
+            prenom1: 'vincent', <br>
+            prenom2: 'julia', <br>
+            prenom3 : 'patric', <br>
+            prenom4 : 'claire' <br>
+        } <br>
+        var p = ''; <br><br>
+
+        for ( var clefs in prenoms ) {  <br>
+            p += clefs  + ' : ' + prenoms[clefs] + '\n' ; <br>
+        } <br><br>
+    </p>
+    <p>
+        ******************* Objet natif date() *****************<br>
+        Date sous forme litérale -> date() <br>
+        Date sous forme de milliseconde ( depuis 1970 ) Le TIMESTAMP, très utile -> Date.now() <br>
+        Méthode de l objet date : <br>
+        Les méthode GETeur qui vont récuperer des infos relatives à une date <br>
+        Les methodes SETeur vont définir une date <br>
+        Les GETeur : getTime(), getFullYear() (année relative à la date), getMonth(), getDate(), getDay() <br><br>
+    </p>
+    <p>
+        ******************** Objet Math ************************* <br><br>
+        Méthode Math.random, renvoi un nombre compris entre 0 et 1. <br>
+        Méthode Math.round, a besoin d'un argument, le nombre à arrondir <br>
+        Méthode Math.floor, arrondi à l'entier inférieur <br>
+        Méthode Math.ceil , arrondi à l entier supérieur <br>
+        Méthode Math.min, retourne le nombre le plus petit d'une serie de nombre <br>
+        Méthode Math.max, retourne le nombre le plus grand d'une série de nombre <br>
+        Méthode Math.abs, retourne la valeur absolue , cad positif d'un nombre <br>
+        Méthode Math.pow, retourne le resultat d'un nombre exposant un autre nombre. A besoin de 2 param pour fonctionner <br>
+        Méthode Math.sqrt, retourne la raçine carrée d'un nombre <br>
+        Méthode Math.cos, retourne le cosinus <br>
+        Méthode Math.sin, retourne le sinnus <br>
+        Méthode Math.PI, retourne Pi <br>
+
+    </p>
+    <p>var_dump() = methode pour comparer en valeur et en type d'une variable  -> renvoi true ou false</p>
+    
+    <div id="result">
+
+    </div>
+
+
+    <script>
+        // utilisation du prompt 
+        var carre = function(x) {
+            console.log('carré de ' + x + ' = ' + x*x);
+        };
+        // var y = prompt('entrez un nombre')
+        // carre(y);
+
+/****************************************** Parcourir un objet litérale avec la boucle for in ***********************************************/
+
+        /* var prenoms1 = {
+            prenom1: 'vincent',
+            prenom2: 'julia',
+            prenom3 : 'patric',
+            prenom4 : 'claire'
+        }
+        var p1 = '';
+
+        for ( var clefs in prenoms1 ) {
+            p1 += clefs  + ' : ' + prenoms1[clefs] + '\n' ;
+        }*/
+
+        //console.log(p1);
+
+/************************************************ Méthode et propriétés de l objet number **************************************************/
+
+// propriétés
+        /* var min = Number.MIN_VALUE;
+        var max = Number.MAX_VALUE;
+        var infneg = Number.NEGATIVE_INFINITY;
+        var infpos = Number.POSITIVE_INFINITY;
+        var notnumber = Number.NaN;
+
+        alert ('Min : ' + min +
+            '\nMax : ' + max +
+            '\nInfini negatif : ' + infneg +
+            '\nInfini positif : ' + infpos +
+            '\nPas un nombre : ' + notnumber) */
+
+// Méthodes
+// toSTring()  converti un nombre en string 
+        /* var x = 10 ;
+        var t = x.toString();
+
+        console.log('type x : ' + typeof(x) + '\nType t : ' + typeof(t)); */
+        // result.innerHTML ='type x : ' + typeof(x) + '\nType t : ' + typeof(t)
+
+// toFixed()  affiche un nombre avec un certain nombre après la virgule 
+        /* var x = 10.4531;
+
+        var d = x.toFixed(2);
+        console.log('Valeur de d :' + d + '\nType de d : ' + typeof(d)); */
+
+// toPrecision()
+
+/************************************************** Méthode et propriétés sur l'objet String **********************************************/
+
+// valeur primitive et objet string
+var primitive = " je suis une valeur primitive";
+        var type_prim = typeof(primitive);
+        var longueur_prim = primitive.length;
+        var maj_prim = primitive.toUpperCase();
+
+        var chaine = new String(" je suis un objet ");
+        var type_chai = typeof(chaine);
+        var maj_chai = chaine.toUpperCase();
+
+        // console.log('Type de primitive : ' + type_prim + '\nType de chaine : ' + type_chai );
+
+        // console.log('Longueur de primitive : ' + longueur_prim + '\nPrimitive en majuscule :' + maj_prim + '\nChaine en majuscule : ' + maj_chai );
+
+// créer un objet
+        var obj = new Object();
+
+        obj.prenom = "vincent";
+        obj.nom = "martinez";
+        obj.age = 25;
+
+        // console.log(obj.prenom);
+
+        var moi = {
+            prenom: "vincent",
+            nom: "martinez",
+            age: 25,
+
+            id: function() {
+                return this.prenom + ' ' + this.nom + ' et j ai ' + this.age + 'ans !';
+            }
+        };
+        // console.log(moi.id());
+        // result.innerHTML = moi.id() ;
+
+        function Identite(p, n, a) {
+            this.prenom = p;
+            this.nom = n;
+            this.age = a;
+        }
+        var pierre = new Identite("Pierre", "Durand", 25);
+        var victor = new Identite("Victor", "Coco", 23);
+
+        // console.log('Age de pierre : ' + pierre.age + '\nAge de Victor : ' + victor.age);
+
+
+/************************************************** Méthode et propriétés de l'objet array ( tableau ) ********************************************************/
+
+// Méthode length et boucle for pour parcourir un tableau 
+
+        var prenoms2 = [ 'vincent', 'victor', 'pierre', 'julia', 'claire'];
+        var p2 = '';
+
+
+
+    // Méthode push et pop
+        // boucle pour afficher les prenoms du tableau 
+        /* for ( var i=0; i < prenoms2.length; i++) {
+            p2 += 'prenom n°' + ( i+1 ) + ' : ' + prenoms2[i] + '\n';
+        } */
+
+    // methode push()
+        /* var taille = prenoms2.push('juan', 'pauline');
+        for ( var i=0; i < prenoms2.length; i++) {
+            p2 += 'prenom n°' + ( i+1 ) + ' : ' + prenoms2[i] + '\n';
+        }
+        console.log('le tableau contient ' + taille + ' éléments : \n\n' + p2); */
+        //console.log(taille); 
+
+    // methode pop()
+        /* var suppr = prenoms2.pop();
+        for ( var i=0; i < prenoms2.length; i++) {
+            p2 += 'prenom n°' + ( i+1 ) + ' : ' + prenoms2[i] + '\n';
+        }
+        console.log( p + ' \nNous avons supprimé : ' + suppr + 'de notre tableau'); */
+
+    // methode unshift
+        /* var taille2 = prenoms2.unshift('ronan', 'polo');
+        for ( var i=0; i < prenoms2.length; i++) {
+            p2 += 'prenom n°' + ( i+1 ) + ' : ' + prenoms2[i] + '\n';
+        }
+        console.log('Notre tableau contient' + taille2 + ' prenoms : \n\n' + p2); */
+
+    // methode shift 
+        /* var suppr = prenoms2.shift();
+        for ( var i=0; i < prenoms2.length; i++) {
+            p2 += 'prenom n°' + ( i+1 ) + ' : ' + prenoms2[i] + '\n';
+        }
+        console.log(('nouveau tableau : \n' + p2 + ' \n\nPrénom supprimé : ' + suppr)); */
+
+    // methode splice
+        prenoms2.splice(1, 0, 'florian', 'chloé');
+        for ( var i=0; i < prenoms2.length; i++) {
+            p2 += 'prenom n°' + ( i+1 ) + ' : ' + prenoms2[i] + '\n';
+        }
+        console.log('Nouveau tableau :\n\n' + p2);
+
+    // methode sort 
+        /* prenoms2.sort();
+        for ( var i=0; i < prenoms2.length; i++) {
+            p2 += 'prenom n°' + ( i+1 ) + ' : ' + prenoms2[i] + '\n';
+        }
+        console.log( 'Nouveau tableau :\n\n' + p2 ); */
+
+    // méthode reverse()
+        /* prenoms2.reverse();
+        for ( var i=0; i < prenoms2.length; i++) {
+            p2 += 'prenom n°' + ( i+1 ) + ' : ' + prenoms2[i] + '\n';
+        }
+        console.log( 'Nouveau tableau :\n\n' + p2 ); */
+
+    // méthode slice()
+        /* var garcons = prenoms2.slice( 0, 2);
+        for ( var i=0; i < prenoms2.length; i++) {
+            p2 += 'prenom n°' + ( i+1 ) + ' : ' + prenoms2[i] + '\n';
+        }
+        console.log( 'Notre tableau de base : ' + prenoms2 + '\n\nLe tableau crée par slice() : ' + garcons ); */
+
+    // méthode join()
+        /* var chaine = prenoms2.join('/');
+        for ( var i=0; i < prenoms2.length; i++) {
+            p2 += 'prenom n°' + ( i+1 ) + ' : ' + prenoms2[i] + '\n';
+        }
+        console.log( 'Notre tableau:\n' + p2 + '\n\nLa chaine renvoyée par join() : ' + chaine ); */
+        
+    // méthode concat()
+        /* var garcons = [ 'pierre', 'victor', 'florian' ];
+        var filles = [ 'julia', 'claire' ];
+        var animaux = [ 'Bubulle', 'Mimouche'];
+
+        var gf = garcons.concat(filles);
+        var fg = filles.concat(garcons);
+        var fusion = garcons.concat(filles, animaux);
+
+        console.log( 'Valeurs du tableau garcons : ' + garcons + '\nValeurs du tableau filles : ' + filles + '\nValeurs du tableau gf : ' + gf +
+                    '\nValeurs du tableau fg : ' + fg );
+        console.log('Fusion : \n ' + fusion); */
+
+
+//************************************************* Méthode et propriétés de l'objet DATE ***************************************************/
+        /*
+        var datelit = Date();
+        var datems = Date.now();
+        var d = new Date("January 25, 2015 09:00:00");
+        var f = new Date(604800000);
+
+        var d1 = new Date(2015, 6, 15, 12, 30, 20, 110);
+        var d2 = new Date(2015, 6, 15);
+
+        var diso1 = new Date("2015-06-15");
+        var diso2 = new Date("2015-06-15T12:00:00");
+
+        var dcourte = new Date("06/15/2015");
+        var dlongue = new Date("January 25 2015 09:00:00");
+
+        var dcomp = new Date("Sun Jan 25 2015 09:00:00 GMT+0100");
+        */
+
+        // console.log('Date littéralle : ' + datelit + '\nDate sous forme de ms : ' + datems);
+        // console.log(d);
+        // console.log(f);
+        // console.log(d1);
+        // console.log(d2);
+        /* console.log('Date ISO courte : ' + diso1 + '\nDate ISO complète : ' + diso2 + '\nDAte courte : ' + dcourte + '\nDate longue : ' + dlongue +
+            '\nDate complète : ' + dcomp); */
+
+// methode de l objet Date()
+    // Les GETeur 
+        var d = new Date;
+
+        var dms = d.getTime();
+        var dy = d.getFullYear();
+        var dmo = d.getMonth(); // pour afficher le date il faut rajouter +1 parce que cette méthode renvoi un tableau donc avec un indice 0
+        var ddate = d.getDate();
+        var dday = d.getDay();
+        
+        var dh = d.getHours();
+        var dmi = d.getMinutes();
+        var ds = d.getSeconds();
+        var dMs = d.getMilliseconds();
+
+        var mois = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
+        var jour = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+
+        // console.log('Nous sommes le ' + ddate + '/' + dmo + '/' + dy + '\nIl est actuellement ' + dh + ':' + dmi + ':' + ds + ':' + dMs ); 
+        // console.log('Le ' + jour[dday] + ' ' + ddate + ' ' + mois[dmo] + ' ' + dy + '.\nIl est : ' + dh + 'h ' + dmi + 'min et ' + ds + 's.');
+
+    // Méthode de type SETeur
+        /* d.setFullYear(2015,5,15);
+        d.setHours(12);
+        d.setMinutes(30);
+        d.setSeconds(15);
+
+        console.log('Date définie :' + d ); */
+
+/************************************************ Méthode et propriétés de l'objet Math ***************************************************/
+    
+
+    </script>
+</body>
+</html>

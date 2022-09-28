@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Canvas</title>
+
+    <style>
+        /* Supprimer la marge par défault du navigateur pour que le body prene 100% de la page */
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #canvas1 {
+            border: 4px solid orange;
+        }
+        #image{display: none;}
+    </style>
+</head>
+<body>
+    <H1>L'élément HTML CANVAS</H1>
+    <nav>
+        <ul>
+            <li class="menu-pres"><a href="#">Présentation de l'élément canvas</a>
+                <ul class="submenu">
+                    <li>Découverte de l'élément canvas :
+                        <ul>
+                            <li>Permet de dessiner des figures géometrique.</li>
+                            <li>des dégradés de couleur.</li>
+                            <li>Il sert de contenaire.</li>
+                        </ul>
+                    </li>
+                    <li>Contexte d'utilisation :
+                        <ul>
+                            <li>Il faut préciser obligatoirement une largeur et une hauteur.</li>
+                        </ul>
+                    </li>
+                    <li>L'élément canvas et javascript :</li>
+                </ul>
+            </li>
+            <li class="menu-rect"><a href="#">Dessiner un rectangle</a>
+                <ul class="submenu">
+                    <li>Rectangle plein
+                        <ul>
+                            <li>fillStyle : défini une couleur. Toujours placer cette propriété avant fillRect</li>
+                            <li>fillRect : dessine la taille et la le rectangle. Prend 4 arguments : <br>
+                                <strong>Les 2 premiers correspond au retait gauche et haut de notre rectangle par rapport au canvas</strong><br>
+                                <strong>Les 2 derniers correspond à la largeur et à la hauteur</strong>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Rectangle vide</li>
+                    <li>Gérer les dépassements</li>
+                </ul>
+            </li>
+            <li class="menu-lign"><a href="#">Dessiner une ligne</a>
+                <ul class="submenu">
+                    <li>Dessiner une ligne
+                        <ul>
+                            <li><strong>moveTo</strong> : point de départ de coordonnées par rapport au bord gauche et haut</li>
+                            <li><strong>lineTo</strong> : point d'arrivée de coordonnées par rapport au bord gauche et haut</li>
+                        </ul>
+                    </li>
+                    <li>Dessiner plusieurs lignes
+                        <ul>
+                            <li>moveTo -> pt de départ</li> 
+                            <li>lineTo -> dernier point de la 1ere ligne et 1er point de la 2eme</li> 
+                            <li>lineTo -> dernier pt de la 2eme et pt de départ de la 3eme</li> 
+                            <li>lineTo -> dernier point de la 3eme ligne</li>
+                        </ul> 
+                    </li>
+                    <li>Gérer l'épaisseur et la couleur de la ligne
+                        <ul>
+                            <li>beginPath : début de tracer</li>
+                            <li>lineWidth : épaisseur</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-arc"><a href="#">Dessiner des arcs de cercle et des cercles</a>
+                <ul class="submenu">
+                    <li>Créer des arcs et des cercles vides
+                        <ul>
+                            <li>beginPath</li>
+                            <li>Méthode arc qui comprend 5 arguments :
+                                <ul>
+                                    <li>Décalage du point centrale de l arc par rapport au bord gauche du canvas</li>
+                                    <li>Décalage du point centrale de l arc par rapport au bord haut du canvas</li>
+                                    <li>la taille du rayon</li>
+                                    <li>L'angle de départ exprimé en radian</li>
+                                    <li>L'angle de fin exprimé en radian. (un tour de cercle est égal à 2pi radian) on tourne dans le sens des aiguilles d'une montre, le pt de départ (opi raidan) se situe au niveau le plus à droite de l arc de cercle.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Créer des arcs et des cercles pleins</li>
+                </ul>
+            </li>
+            <li class="menu-dgraD"><a href="#">Créer des dégradés</a>
+                <ul class="submenu">
+                    <li>Dégradé linéaire : <strong>il faut dessiner un rectangle qui contient les couleurs. La taille et l emplacement de celui-ci doit correspondre</strong>
+                        <ul>
+                            <li>Dégradé d'un coté à un autre</li>
+                            <li>Avec la méthode createLinearGradient() qui prend 4 arguments :
+                                <ul>
+                                    <li>Point de départ par rapport au bord gauche</li>
+                                    <li>Point de départ par rapport au bord haut</li>
+                                    <li>Point de fin par rapport au bord droit</li>
+                                    <li>Point de départ par rapport au bord bas</li>
+                                </ul>
+                            </li>
+                        </ul> 
+                    </li>
+                    <li>Dégradé radial : <strong>il faut dessiner un rectangle qui contient les couleurs. La taille et l emplacement de celui-ci doit correspondre</strong>                        
+                    <li>Dégradé qui par dans tous les sens</li>                            
+                    <li>Avec la méthode createRadialGradient() qui prend 6 arguments :
+                        <ul>
+                            <li>Emplacement par rapport au bord gauche</li>
+                            <li>Emplacement par rapport au bord haut,</li> 
+                            <li>Taille du point de départ de notre dégradé,</li>
+                            <li>Emplacement de fin par rapport au bord gauche,</li>
+                            <li>emplacement par rapport au bord haut</li>
+                            <li>taille du disque de la fin de notre dégradé</li>                                    
+                        </ul>
+                    </li>                   
+                </ul>
+            </li> 
+            <li><a href="#">Insérer du texte / des images</a>
+                <ul class="submenu">
+                    <li>Ecrire du texte dans le canvas
+                        <ul>
+                            <li>Propriété font ( police, taille de police )</li>
+                            <li>Pour un texte creux :
+                                <ul>
+                                    <li>strokeStyle</li>
+                                    <li>strokeText qui prend 3 arguments 
+                                        <ul>
+                                            <li>Un texte qui sera affiché</li>
+                                            <li>Un nombre qui est la distance entre le début du texte et le bord gauche du canvas</li>
+                                            <li>Un nombre qui est la distance entre le début du texte et le bord haut du canvas</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Pour un texte plein :
+                                <ul>
+                                    <li>fillStyle pour la couleur</li>
+                                    <li>fillText qui prend aussi 3 arguments
+                                        <ul>
+                                            <li>Un texte qui sera affiché</li>
+                                            <li>Un nombre qui est la distance entre le début du texte et le bord gauche du canvas</li>
+                                            <li>Un nombre qui est la distance entre le début du texte et le bord haut du canvas</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Insérer une image</li>
+                </ul>
+            </li> 
+            <li class="menu-inclin"><a href="#">Incliner un dessin</a>
+                <ul class="submenu">
+                    <li>Méthode rotate() : 
+                        <ul>
+                            <li>applique une rotation dans le sens des aiguillles d'une montre</li>
+                            <li>Prend comme argument la valeur de l'angle de rotation souhaitée en radian</li>
+                            <li>Elle doit etre executée avant le dessin</li>
+                        </ul>
+                    <li>Méthode translate()</li>
+                </ul>
+            </li>         
+        </ul>
+    </nav>
+
+    <canvas id="canvas1" width="500" height="500"></canvas>
+
+    <script>
+        /* var canvas = document.getElementById('canvas1');
+        var contexte = canvas.getContext('2d'); */
+        /*
+    // rectangle 1 : bleu, plein, opaque
+        contexte.fillStyle = '#36B';
+        contexte.fillRect(100, 50, 200, 100);
+
+    // Rectangle 2 : vert, plein,semi-transparent
+        contexte.fillStyle = 'RGBa(50, 200, 100, 0.5)';
+        contexte.fillRect(50, 25, 100, 50);
+
+    // Rectangle 3 : vide, bordure violette
+        // epaisseur
+        contexte.lineWidth = '5';
+        // couleur
+        contexte.strokeStyle = '#A3A';
+
+        contexte.strokeRect(250, 100, 200, 50);  */
+
+// Dessiner une ligne 
+    // Ligne point de départ moveTo et point d'arriver lineTo
+        // la couleur
+        /* contexte.strokeStyle = '#48C';
+
+        // point de départ par rapport au bord gauche et haut 
+        contexte.moveTo(20, 270);
+        // point d'arriver par rapport au bord gauche et haut 
+        contexte.lineTo(450, 450);
+
+        // Traçage de la ligne avec la méthode stroke() 
+        // contexte.stroke(); */
+
+// dessiner plusieurs lignes, un triangle par ex
+        /* contexte.strokeStyle = '#48C';
+
+        // moveTo -> pt de départ 
+        contexte.moveTo(50,50);
+        // lineTo -> dernier point de la 1ere ligne et 1er point de la 2eme 
+        contexte.lineTo(350, 150);
+        //lineTo -> dernier pt de la 2eme et pt de départ de la 3eme 
+        contexte.lineTo(50, 150);
+        // lineTo -> dernier point de la 3eme ligne        
+        contexte.lineTo(50, 50); */
+
+        // contexte.stroke();
+
+// épaisseur différentes entre lignes 
+    // 1er tracé
+        /* contexte.beginPath();
+        contexte.lineWidth = '5';
+        contexte.strokeStyle = '#48C';
+        contexte.moveTo(100, 50);
+        contexte.lineTo(300, 150);
+
+       // contexte.stroke();
+
+    // 2eme tracé
+        contexte.beginPath();
+        contexte.lineWidth = '10';
+        contexte.strokeStyle = '#C24';
+        contexte.moveTo(300, 160);
+        contexte.lineTo(100, 160);
+
+        // contexte.stroke();
+
+    // 3eme tracé
+        contexte.beginPath();
+        contexte.lineWidth = '5';
+        contexte.strokeStyle = '#A4A';
+        contexte.moveTo(100, 150);
+        contexte.lineTo(300, 50);
+
+        // contexte.stroke(); */
+
+// dessiner des arcs et des cercles vide
+    // arc vide
+        /* contexte.beginPath();
+        contexte.lineWidth = '5';
+        contexte.strokeStyle = '#4C8';
+        contexte.arc(75, 100, 50, 0, Math.PI);
+        // contexte.stroke();
+
+    // cercle complet vide
+        contexte.beginPath();
+        contexte.lineWidth = '5';
+        contexte.strokeStyle = '#A4A';
+        contexte.arc(200, 100, 50, 0, 2*Math.PI);
+        // contexte.stroke();
+
+    // arc vide 
+        contexte.beginPath();
+        contexte.lineWidth = '5';
+        contexte.strokeStyle = '#48C';
+        contexte.arc(325, 100, 50, Math.PI, 2*Math.PI);
+        // contexte.stroke(); */
+
+// dessiner des arcs et des cercles pleins
+        var canvas = document.getElementById('canvas1');
+        var contexte = canvas.getContext('2d');
+    // arc plein
+        contexte.beginPath();
+        contexte.lineWidth = '5';
+        contexte.fillStyle = '#4C8';
+        contexte.arc(75, 100, 50, 0, Math.PI);
+        contexte.fill();
+
+    // cercle plein
+        contexte.beginPath();
+        contexte.lineWidth = '5';
+        contexte.fillStyle = '#A4A';
+        contexte.arc(200, 100, 50, 0, 2*Math.PI);
+        contexte.fill();
+
+    // arc plein 
+        contexte.beginPath();
+        contexte.lineWidth = '5';
+        contexte.fillStyle = '#48C';
+        contexte.arc(325, 100, 50, Math.PI, 2*Math.PI);
+        contexte.fill();
+
+// Dégradé linéraire
+        var canvas = document.getElementById('canvas1');
+        var contexte = canvas.getContext('2d');
+
+        // var lineaire = contexte.createLinearGradient(100, 50, 300, 150);
+    // couleur
+        /* lineaire.addColorStop(0, '#4C8');
+        lineaire.addColorStop(0.5, '#48C');
+        lineaire.addColorStop(1, '#A4A');
+    // le rectangle qui contient ces couleurs. La taille et l emplacement de celui-ci doit correspondre
+        contexte.fillStyle = lineaire;
+        contexte.fillRect(100, 50, 400, 300); */
+
+// Dégradé radian 6 arguments :
+    // 200 -> emplacement par rapport au bord gauche , 
+    // 200 -> emplacement par rapport au bord haut, 
+    // 20 -> taille du point de départ de notre dégradé, 
+    // 200 -> emplacement de fin par rapport au bord gauche, 
+    // 100 -> emplacement par rapport au bord haut et 
+    // 75 -> taille du disque de la fin de otre dégradé
+        /* var radial = contexte.createRadialGradient(250, 250, 40, 250, 300, 200);
+        
+        radial.addColorStop(0, '#4C8');
+        radial.addColorStop(0.25, '#48C');
+        radial.addColorStop(1, '#A4A');
+
+        contexte.beginPath();
+        contexte.fillStyle = radial;
+        contexte.arc(250, 250, 200, 0, 2*Math.PI); */
+        // contexte.fill();
+
+// Insérer du texte / des images 
+        /* var canvas = document.getElementById('canvas1');
+        var contexte = canvas.getContext('2d');
+
+        contexte.font = "bold 20px Verdana, Arial, serif";
+        contexte.strokeStyle = '#48B';
+        contexte.strokeText('texte creux', 25, 100);
+
+        contexte.font = "bold 20px Verdana, Arial, serif";
+        contexte.fillStyle = '#48B';
+        contexte.fillText('Texte plein', 225, 100); */
+
+// Rotation() et translate()
+        /* var canvas = document.getElementById('canvas1');
+        var contexte = canvas.getContext('2d'); */
+
+    // rotation 
+        /* contexte.fillStyle = '#48A';
+        contexte.fillRect(150, 25, 75, 75);
+
+        contexte.rotate(Math.PI/9);
+        contexte.fillStyle = 'RGBa(192, 64, 192, 0.6)';
+        contexte.fillRect(150, 25, 75, 75);
+
+        contexte.rotate(Math.PI/9);
+        contexte.fillStyle = 'RGBa(192, 64, 192, 0.6)';
+        contexte.fillRect(150, 25, 75, 75); */
+
+// 
+        /* contexte.fillStyle = '#48A';
+        contexte.fillRect(10, 10, 75, 75);
+
+
+        contexte.translate(75,75);
+
+        contexte.fillStyle = 'RGB(64, 192, 128)';
+        contexte.fillRect(10, 10, 75, 75); */
+
+// 
+        /* contexte.translate(300, 200);
+
+        contexte.fillStyle = '#48A';
+        contexte.fillRect(0, 0, 75, 75);
+
+        contexte.rotate(Math.PI/2);
+        contexte.fillStyle = 'RGB(64, 192, 128)';
+        contexte.fillRect(0, 0, 75, 75);
+
+        contexte.rotate(Math.PI/2);
+        contexte.fillStyle = '#A3A';
+        contexte.fillRect(0, 0, 75, 75);
+
+        contexte.rotate(Math.PI/2);
+        contexte.fillStyle = '#E85';
+        contexte.fillRect(0, 0, 75, 75); */
+
+    </script>
+</body>
+</html>

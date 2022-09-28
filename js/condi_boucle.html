@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Javascript</title>
+    
+</head>
+<body>
+    <h1>Les conditions en Javascript</h1>
+
+    <h2>Introduction aux conditions</h2>
+    <ul>
+        <li><h3>Comparateur de valeur et de type : </h3>
+            <p>
+                --> renvoi un bolleen 
+                Assigner des variables en js 
+                <br> 
+                var x = 7, y = 14;
+                <br>
+                var vrai = x < y; <br>
+                var faux = 14 <= 7;
+                <br>
+                var egalval = 4 == "4"; <br>
+                var egalvaltype = 4 === "4";
+                <br>
+                var difval = 4 != "4"; <br>
+                var difvaltype = 4 !== "4";
+            </p>
+        </li>
+        <li><h3>Les conditions</h3>
+            <p>
+                Syntaxe : <br>
+                var heure = 10
+                if (conditons, test) { <br>
+                    bloc de code à executer si la condition est vérifiée <br>
+                } 
+                <br> else { <br>
+                    code à executer quand la conditon n'est pas vérifiée <br>
+                }
+                <br>
+                exemple : <br>
+                if ( heure <= 18 == true) { <br>
+                    alerte("c est verif") <br>
+                } <br>
+                else {
+                    <br> alert('c est pas bon') <br>
+                } <br>
+                Condition plus avancée : opérateurs logique <br>
+                var heure = 15; <br>
+                if (heure >= 0 && heure < 12 == true ) { <br>
+                    alert (" c'est le matin"); <br>
+                } <br>
+                else if ( heure === 12 == true ) { <br>
+                    alert (" il est midi pile "); <br>
+                } <br> 
+                else if ( heure > 12 && heure <= 24 == true) { <br>
+                    alert (" C'est l'après midi ou le soir "); <br>
+                } <br>
+                else { <br>
+                    alert (" La valeur entrée ne semble pas valide ") <br>
+                } <br>
+            </p>
+        </li>
+    </ul>
+    <h2>Les fonctions</h2>
+    <ul>
+        <li><h3>fonctions anonymes</h3>
+            <p>exemple : <br>
+                function(x) { <br>
+                    x = prompt("Entrez un nombre") <br>
+                    console.log('carré de ' + x + ' = ' + x*x) <br>
+                } <br>
+            </p>
+        </li>
+        <li><h3>Les fonctions auto-invoquées</h3>
+            <p>exemple : <br>
+                (function(x) { <br>
+                x = prompt("Entrez un nombre") <br>
+                console.log('carré de ' + x + ' = ' + x*x) <br>
+                }) () <br>
+            </p>
+        </li>
+    </ul>
+    <h2>Les boucles</h2>
+    <ul>
+        <li>Boucle while : execute ce code si la condition est validée</li>
+        <li>Boucle do while : excute ce code tant qu une condition est valide</li>
+    </ul>
+
+    <p id="res"></p>
+    <p id="bcle_for"></p>
+
+
+
+    <script>
+
+// Les fonctions auto-invoquée
+    /* (function(x) { 
+                    x = prompt("Entrez un nombre") 
+                    console.log('carré de ' + x + ' = ' + x*x) 
+                }) (); */
+ 
+ 
+// Les conditions  
+
+        /*
+        var x = 7, y = 14;
+
+        var vrai = x < y;
+        var faux = 14 <= 7;
+
+        var egalval = 4 == "4";
+        var egalvaltype = 4 === "4";
+
+        var difval = 4 != "4";
+        var difvaltype = 4 !== "4";
+
+        console.log("vrai stocke : " + vrai + 
+            "\nfaux stocke : " + faux + 
+            "\negalval stocke : " + egalval + 
+            "\negalvaltype stocke : " + egalvaltype +
+            "\ndifval stocke : " + difval +
+            "\ndifvaltype stocke : " + difvaltype);
+
+        var heure = 15;
+        if (heure >= 0 && heure < 12 == true ) {
+            console.log(" c'est le matin");
+        }
+        else if ( heure === 12 == true ) {
+            console.log(" il est midi pile ");
+        }
+        else if ( heure > 12 && heure <= 24 == true) {
+            console.log(" C'est l'après midi ou le soir ");
+        }
+        else {
+            console.log(" La valeur entrée ne semble pas valide ")
+        } 
+        */
+        
+// boucle do while            
+
+        var x = 0;
+        var y = 20;
+       
+        res.innerHTML = "voir la console";
+
+        do {
+            console.log("x contient la valeur : " +x );
+            x++
+        }
+        while(x <= 5);
+
+        do {
+            console.log("\ny contient la valeur : " +y);
+            y++;
+        }
+        while(y <= 5);
+        
+// boucle for 
+        // bcle_for = document.getElementById('bcle_for');
+        for (i=10; i>=5; i--) {
+            console.log(i);            
+        }
+        
+ 
+        
+    
+
+
+
+       
+        
+
+
+        
+    </script>
+
+</body>
+</html>

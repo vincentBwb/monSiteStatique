@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>les formulaires</title>
+</head>
+<body>
+    <form action="post" action="traitement.php">
+        <p>
+            <fieldset>
+                <legend>Informations obligatoires</legend>
+                <label for="pseudo">
+                    Remplissez votre pseudo
+                </label>
+                <input type="text" name="pseudo" id="pseudo" placeholder="pierre"/>
+                <br/><br/>
+
+                <label for="pass">
+                    Tapez votre mot de passe
+                </label>
+                <input type="password" name="pass" id="pass"/>
+                <br><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>informations personnelles</legend>
+                <label for="email">
+                    Remplissez votre email
+                </label>
+                <input type="email" name="email" id="email"/>
+                <br><br>
+
+                <label for="site">
+                    Inscrivez votre site internet 
+                </label>
+                <input type="url" name="site" id="site"/>
+                <br><br>
+
+                <label for="telephone">
+                    Inscrivez votre numéro de téléphone
+                </label>
+                <input type="tel" name="telephone" id="telephone"/>
+                <br><br>
+            </fieldset>
+
+            quels sont vos sports favori ? <br>
+            <input type="checkbox" name="course" id="course"/>
+            <label for="course">Course à pied</label><br>
+            
+            <input type="checkbox" name="natation" id="natation"/>
+            <label for="natation">Natation</label><br>
+
+            <input type="checkbox" name="cyclisme" id="cyclisme"/>
+            <label for="cyclisme">cyclisme</label>
+            <br><br>
+
+            Quelle viennoiserie préférez-vous ? <br>
+            <input type="radio" name="viennoiserie" value="croissant" id="croissant"/>
+            <label for="croissant">Les croissants</label><br>
+
+            <input type="radio" name="viennoiserie" value="chocolat" id="chocolat"/>
+            <label for="chocolat">Les pains au chocolat</label><br>
+
+            <input type="radio" name="viennoiserie" value="raisin" id="raisin"/>
+            <label for="raisin">Les pains au raisin </label>
+            <br><br>
+
+            Choisssez votre pays :
+            <select name="pays" id="pays">
+                <optgroup label="Europe">
+                    <option value="france">France</option>
+                    <option value="angleterre">Angleterre</option>
+                    <option value="irlande">Irlande</option>
+                    <option value="ecosse">Ecosse</option>
+                    <option value="espagne">Espagne</option>
+                    <option value="italie">Italie</option>
+                </optgroup>
+                <optgroup label="Asie">
+                    <option value="chine">Chine</option>
+                </optgroup>
+            </select>
+        
+            
+            
+            <br><br><br>
+            <label for="commentaire">
+                Avez vous des commentaires ?
+            </label>
+            <textarea name="commentaire" id="commentaire" cols="100" rows="5"></textarea>
+        </p>
+    </form>
+</body>
+</html>

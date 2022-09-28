@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8"/>
+        <title>HTML UI Elements</title>
+
+        <!-- Embedded style -->
+        <style>
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            nav {
+                position: fixed;
+                z-index: 10;
+                top: 10px;
+                border: 1px solid #A0A0A0;
+                width: 230px;
+            }
+
+            nav a {
+                color: #80FFA0;
+            }
+
+            body {
+                background-color: #202020;
+                color: #F0F0F0;
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bold;
+            }
+
+            header h1 {
+                text-align: center;
+                font-size: 45px;
+                color: #FF8040;
+            }
+
+            main h1 {
+                margin-bottom: 0px;
+                color: #FFFF90;
+                margin-left: 250px;
+            }
+
+            h2 {
+                color: #80FFA0;
+                margin-bottom: 0px;
+            }
+
+            textarea {
+                resize: none;
+            }
+
+            canvas {
+                border: 1px solid #A0A0A0;
+            }
+
+            ul li {
+                list-style-type: none;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            main a {
+                color: #00C0FF;
+            }
+
+            a:hover {
+                color: #C080FF;
+            }
+
+            div {
+                margin-left: 300px;
+            }
+
+            video {
+                width: 380px;
+                height: 214px;
+            }
+
+            footer h4 {
+                text-align: right;
+                color: #A0A0A0;
+            }
+
+            .input-link {
+                margin-left: 250px;
+            }
+
+            .kind {
+                color: #FFFF90;
+                font-size: 20px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <header>
+
+            <h1>HTML User Interface Elements</h1>
+
+            <nav>
+                <ul>
+                    <li><a class="kind" href="#input">Input types</a></li>
+                        <ul>
+                            <li><a href="#button">Button</a></li>
+                            <li><a href="#checkbox">Checkbox</a></li>
+                            <li><a href="#color">Color</a></li>
+                            <li><a href="#date">Date</a></li>
+                            <li><a href="#datetime-local">Datetime-local</a></li>
+                            <li><a href="#email">Email</a></li>
+                            <li><a href="#file">File</a></li>
+                            <li><a href="#hidden">Hidden</a></li>
+                            <li><a href="#image">Image</a></li>
+                            <li><a href="#month">Month</a></li>
+                            <li><a href="#number">Number</a></li>
+                            <li><a href="#password">Password</a></li>
+                            <li><a href="#radio">Radio</a></li>
+                            <li><a href="#range">Range</a></li>
+                            <li><a href="#reset">Reset</a></li>
+                            <li><a href="#search">Search</a></li>
+                            <li><a href="#submit">Submit</a></li>
+                            <li><a href="#tel">Tel</a></li>
+                            <li><a href="#text">Text</a></li>
+                            <li><a href="#time">Time</a></li>
+                            <li><a href="#url">Url</a></li>
+                            <li><a href="#week">Week</a></li>
+                        </ul><br>
+
+                    <li><a class="kind" href="#other">Other tags</a></li>
+                        <ul>
+                            <li><a href="#select">Select</a></li>
+                            <li><a href="#datalist">Datalist</a></li>
+                            <li><a href="#textarea">Textarea</a></li>
+                            <li><a href="#btn">Button</a></li>
+                            <li><a href="#img">Img</a></li>
+                            <li><a href="#audio">Audio</a></li>
+                            <li><a href="#video">Video</a></li>
+                            <li><a href="#canvas">Canvas</a></li>
+                        </ul><br>
+
+                    <li><a class="kind" href="#also">See also</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <main>
+
+            <br>
+            <h1 id="input">Input Types</h1>
+            <a class="input-link" href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input" target="_blank">MDN Web Docs : input tag</a>
+
+            <br><br>
+
+            <div>
+                <h2 id="button">Button</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/button" target="_blank">MDN Web Docs : input type "button"</a>
+                <p>Un bouton sans comportement défini</p>
+                <label for="button-id">Button label:</label>
+                <input type="button" id="button-id" class="button-class" value="Button">
+            </div><br>
+
+            <div>
+                <h2 id="checkbox">Checkbox</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/checkbox" target="_blank">MDN Web Docs : input type "checkbox"</a>
+                <p>Une case à cocher qui permet de sélectionner/déselectionner une valeur</p>
+                <label for="checkbox-id">Checkbox label:</label>
+                <input type="checkbox" id="checkbox-id" class="checkbox-class" name="checkbox" value="Choice">
+            </div><br>
+
+            <div>
+                <h2 id="color">Color</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/color" target="_blank">MDN Web Docs : input type "color"</a>
+                <p>HTML5 un contrôle qui permet de définir une couleur</p>
+                <label for="color-id">Color label:</label>
+                <input type="color" id="color-id" class="color-class" name="color" value="#80FFA0">
+            </div><br>
+
+            <div>
+                <h2 id="date">Date</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/date" target="_blank">MDN Web Docs : input type "date"</a>
+                <p>HTML5 un contrôle qui permet de saisir une date (composé d'un jour,  d'un mois et d'une année)</p>
+                <label for="date-id">Date label:</label>
+                <input type="date" id="date-id" class="date-class" name="date" value="2021-06-12" min="2021-01-01" max="2021-12-31">
+            </div><br>
+
+            <div>
+                <h2 id="datetime-local">Datetime-local</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/datetime-local" target="_blank">MDNMDN Web Docs : input type "datetime-local"</a>
+                <p>HTML5 un contrôle qui permet de saisir une date et une heure (sans fuseau horaire)</p>
+                <label for="datetime-local-id">Datetime-local label:</label>
+                <input type="datetime-local" id="datetime-local-id" class="datetime-local-class" name="datetime-local" value="2021-06-12T16:30" min="2021-01-01T00:00" max="2021-12-31T00:00">
+            </div><br>
+
+            <div>
+                <h2 id="email">Email</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/email" target="_blank">MDN Web Docs : input type "email"</a>
+                <p>HTML5 un champ qui permet de saisir une adresse éléctronique</p>
+                <label for="email-id">Email label:</label>
+                <input type="email" id="email-id" class="email-class" name="email" placeholder="bwb.a.dupont@fondespierre.com" pattern=".+@fondespierre\.com" size="40">
+            </div><br>
+
+            <div>
+                <h2 id="file">File</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/file" target="_blank">MDN Web Docs : input type "file"</a>
+                <p>Un contrôle qui permet de sélectionner un fichier<br>
+                   L'attribut accept définit les types de fichiers qui peuvent être sélectionnés</p>
+                <label for="file-id">File label:</label>
+                <input type="file" id="file-id" class="file-class" name="file" accept="image/png, image/jpeg">
+            </div><br>
+
+            <div>
+                <h2 id="hidden">Hidden</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/hidden" target="_blank">MDN Web Docs : input type "hidden"</a>
+                <p>Un contrôle qui n'est pas affiché mais dont la valeur est envoyée au serveur</p>
+                <label for="hidden-id">Hidden label:</label>
+                <input type="hidden" id="hidden-id" class="hidden-class" name="hidden" value="hiddenValue">
+            </div><br>
+
+            <div>
+                <h2 id="image">Image</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/image" target="_blank">MDN Web Docs : input type "image"</a>
+                <p>Un bouton graphique d'envoi du formulaire<br>
+                   L'attribut src doit être défini avec la source de l'image et l'attribut alt doit être défini avec le texte alternatif<br>
+                   Les attributs height et width permettent de définir la taille de l'image en pixels</p>
+                <label for="image-id">Image label:</label>
+                <input type="image" id="image-id" class="image-class" alt="Image-Button" src="./assets/image-button.png" width="100" height="33">
+            </div><br>
+
+            <div>
+                <h2 id="month">Month</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/month" target="_blank">MDN Web Docs : input type "month"</a>
+                <p>HTML5 un contrôle qui permet de saisir un mois et une année (sans fuseau horaire)</p>
+                <label for="month-id">Month label:</label>
+                <input type="month" id="month-id" class="month-class" name="month" value="2021-06" min="2021-01" max="2021-12">
+            </div><br>
+
+            <div>
+                <h2 id="number">Number</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/number" target="_blank">MDN Web Docs : input type "number"</a>
+                <p>HTML5 un contrôle qui permet de saisir un nombre</p>
+                <label for="number-id">Number label:</label>
+                <input type="number" id="number-id" class="number-class" name="number" value="9" min="0" max="100">
+            </div><br>
+
+            <div>
+                <h2 id="password">Password</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/password" target="_blank">MDN Web Docs : input type "password"</a>
+                <p>Un champ texte sur une seule ligne dont la valeur est masquée<br>
+                   Les attributs maxlength et minlength définissent la taille maximale et minimale de la valeur à saisir dans le champ</p>
+                <label for="password-id">Password label:</label>
+                <input type="password" id="password-id" class="password-class" name="password" minlength="8">
+            </div><br>
+
+            <div>
+                <h2 id="radio">Radio</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/radio" target="_blank">MDN Web Docs : input type "radio"</a>
+                <p>Un bouton radio qui permet de sélectionner une seule valeur parmi un groupe de différentes valeurs</p>
+                <label for="radio-id1">Radio 1 label:</label>
+                <input type="radio" id="radio-id1" class="radio-class" name="radio" value="Choice 1" checked>
+                <label for="radio-id2">Radio 2 label:</label>
+                <input type="radio" id="radio-id2" class="radio-class" name="radio" value="Choice 2">
+                <label for="radio-id3">Radio 3 label:</label>
+                <input type="radio" id="radio-id3" class="radio-class" name="radio" value="Choice 3">
+            </div><br>
+
+            <div>
+                <h2 id="range">Range</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/range" target="_blank">MDN Web Docs : input type "range"</a>
+                <p>HTML5 un contrôle qui permet de saisir un nombre dont la valeur exacte n'est pas importante</p>
+                <label for="range-id">Range label:</label>
+                <input type="range" id="range-id" class="range-class" name="range" value="9" min="1" max="18">
+            </div><br>
+
+            <div>
+                <h2 id="reset">Reset</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/reset" target="_blank">MDN Web Docs : input type "reset"</a>
+                <p>Un bouton qui réinitialise le contenu du formulaire avec les valeurs par défaut</p>
+                <label for="reset-id">Reset label:</label>
+                <input type="reset" id="reset-id" class="reset-class" value="Reset">
+            </div><br>
+
+            <div>
+                <h2 id="search">Search</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/search" target="_blank">MDN Web Docs : input type "search"</a>
+                <p>HTML5 un champ texte sur une ligne pour des termes de recherche. Les sauts de ligne sont automatiquement retirés</p>
+                <label for="search-id">Search label:</label>
+                <input type="search" id="search-id" class="search-class" name="search" placeholder="Search through site">
+            </div><br>
+
+            <div>
+                <h2 id="submit">Submit</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/submit" target="_blank">MDN Web Docs : input type "submit"</a>
+                <p>Un bouton qui envoie le formulaire</p>
+                <label for="submit-id">Submit label:</label>
+                <input type="submit" id="submit-id" class="submit-class" value="Submit">
+            </div><br>
+
+            <div>
+                <h2 id="tel">Tel</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/tel" target="_blank">MDN Web Docs : input type "tel"</a>
+                <p>HTML5 un contrôle pour saisir un numéro de téléphone</p>
+                <label for="tel-id">Tel label:</label>
+                <input type="tel" id="tel-id" class="tel-class" name="tel" pattern="[0-9]{2}\s[0-9]{2}\s[0-9]{2}\s[0-9]{2}\s[0-9]{2}">
+            </div><br>>
+
+            <div>
+                <h2 id="text">Text</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/text" target="_blank">MDN Web Docs : input type "text"</a>
+                <p>Un champ texte sur une seule ligne. Les sauts de ligne sont automatiquement retirés</p>
+                <label for="text-id">Text label:</label>
+                <input type="text" id="text-id" class="text-class" name="text" value="Text">
+            </div><br>
+
+            <div>
+                <h2 id="time">Time</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/time" target="_blank">MDN Web Docs : input type "time"</a>
+                <p>HTML5 Un contrôle pour entrer une valeur de temps (sans fuseau horaire)</p>
+                <label for="time-id">Time label:</label>
+                <input type="time" id="time-id" class="time-class" name="time" value="12:00" min="00:00" max="23:59">
+            </div><br>
+
+            <div>
+                <h2 id="url">Url</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/url" target="_blank">MDN Web Docs : input type "url"</a>
+                <p>HTML5 un champ permettant de saisir une URL</p>
+                <label for="url-id">Url label:</label>
+                <input type="url" id="url-id" class="url-class" name="url" placeholder="https://example.com" pattern="https://.*" size="60">
+            </div><br>
+
+            <div>
+                <h2 id="week">Week</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/week" target="_blank">MDN Web Docs : input type "week"</a>
+                <p>HTML5 un contrôle permettant de saisir une date représentée par un numéro de semaine et une année (sans fuseau horaire)</p>
+                <label for="week-id">Week label:</label>
+                <input type="week" id="week-id" class="week-class" name="week" value="2021-W18" min="2021-W01" max="2021-W52">
+            </div><br><br>
+
+            <h1 id="other">Others Tags</h1>
+
+            <br>
+
+            <div>
+                <h2 id="select">Select tag</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/select" target="_blank">MDN Web Docs : select tag</a>
+                <p>Un contrôle qui permet de sélectionner une seule valeur parmi une liste de différentes valeurs</p>
+                <label for="select-id">Select label:</label>
+                <select id="select-id" class="select-class" name="select">
+                    <option value="choice1" selected>Choice 1</option>
+                    <option value="choice2">Choice 2</option>
+                    <option value="choice3">Choice 3</option>
+                </select>
+            </div><br>
+
+            <div>
+                <h2 id="datalist">Datalist tag</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/datalist" target="_blank">MDN Web Docs : datalist tag</a>
+                <p>Un champ texte qui propose l'auto-complétion parmi une liste de différentes valeurs</p>
+                <label for="datalist-id">Datalist label:</label>
+                <input list="datalist-lst" id="datalist-id" class="datalist-class" name="datalist">
+                <datalist id="datalist-lst">
+                    <option value="choice1"></option>
+                    <option value="choice2"></option>
+                    <option value="choice3"></option>
+                </datalist>
+            </div><br>
+
+            <div>
+                <h2 id="textarea">Textarea tag</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Textarea" target="_blank">MDN Web Docs : textarea tag</a>
+                <p>Un contrôle qui permet d'éditer du texte sur plusieurs lignes</p>
+                <label for="textarea-id">Textarea label:</label>
+                <textarea id="textarea-id" class="textarea-class" name="textarea" rows="3" cols="60"></textarea>
+            </div><br>
+
+            <div>
+                <h2 id="btn">Button tag</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button" target="_blank">MDN Web Docs : button tag</a>
+                <p>Un contrôle interactif ayant la forme d'un bouton et qui pourra être utilisé dans un formulaire ou dans le document</p>
+                <label for="button-tag-id">Button label:</label>
+                <button id="button-tag-id" class="button-tag-class">Button</button>
+            </div><br>
+
+            <div>
+                <h2 id="img">Img tag</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Img" target="_blank">MDN Web Docs : img tag</a>
+                <p>Un contrôle qui permet d'afficher une image dans un document</p>
+                <label for="img-id">Img label:</label>
+                <img id="img-id" class="img-class" src="./assets/img.jpg" alt="Img">
+            </div><br>
+
+            <div>
+                <h2 id="audio">Audio tag</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/audio" target="_blank">MDN Web Docs : audio tag</a>
+                <p>Un contrôle qui permet d'intégrer un contenu sonore dans un document</p>
+                <label for="audio-id">Audio label:</label>
+                <audio id="audio-id" class="audio-class" src="./assets/audio.wav" type="audio/wav" controls></audio>
+            </div><br>
+
+            <div>
+                <h2 id="video">Video tag</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/video" target="_blank">MDN Web Docs : video tag</a>
+                <p>Un contrôle qui permet d'intégrer une video dans un document</p>
+                <label for="video-id">Video label:</label>
+                <video id="video-id" class="video-class" src="./assets/video.mp4" controls></video>
+            </div><br>
+
+            <div>
+                <h2 id="canvas">Canvas tag</h2>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/canvas" target="_blank">MDN Web Docs : canvas tag</a>
+                <p>Un contrôle qui permet de modifier une zone graphique via un script (habituellement en JavaScript ou grâce à WebGL)<br>
+                   Il peut par exemple être utilisé afin de dessiner des graphiques, manipuler des images ou jouer des animations</p>
+                <label for="canvas-id">Canvas label:</label>
+                <canvas id="canvas-id" class="canvas-class" width="300" height="150">Sorry, your browser doesn't support &lt;canvas&gt;.</canvas>
+            </div><br><br>
+
+            <h1 id="also">See Also</h1>
+
+            <div>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe" target="_blank">MDN Web Docs : iframe tag</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/object" target="_blank">MDN Web Docs : object tag</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/MathML/Element/math" target="_blank">MDN Web Docs : math tag</a></li>
+                    <li><a href="https://developer.mozilla.org/fr/docs/Web/SVG/Element/svg" target="_blank">MDN Web Docs : svg tag</a></li>
+                </ul>
+            </div><br><br>
+
+
+        </main>
+
+        <footer id="footer">
+
+            <h4>Writen by RWP for Beweb 2021</h4>
+
+        </footer>
+
+        <!-- Embedded script -->
+        <script>
+
+        </script>
+
+    </body>
+
+</html>

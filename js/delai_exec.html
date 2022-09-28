@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Section HTML</title>
+    
+</head>
+<body>
+    <h1>Gestion du délai d'execution</h1>
+
+    <nav>
+        <ul>
+            <li>Méthode setInterval()
+                <ul>
+                    <li>Méthode window</li>
+                    <li>permet de d'executer un script en boucle en précisant un interval de temps entre chaque répétition</li>
+                    <li>Prend en argument le bloc de code à executer en boucle et l interval entre chaque répétition, exprimé en milliseconde</li>
+                </ul>
+            </li>
+            <li>Méthode clearInterval() : stopper l'execution d'une fonction lancé avec un setInterval</li>
+            <li>Méthode setTimeout()</li>
+        </ul>
+    </nav>
+
+    <p>Horloge actualisée en direct ! Il est <span id="temps"></span></p>
+    <button id="stop">Arrêter le temps</button><br>
+    <button id="btn">Cliquez</button>
+
+
+    <script>
+// timer qui indique l heure en se mettant à jour toutes les secondes *
+        var heure = document.getElementById('temps');
+        var stop = document.getElementById('stop');
+        var tempsReel = setInterval(horloge, 1000);
+        
+        function horloge() {
+            var d = new Date();
+            heure.innerHTML = d.toLocaleTimeString();
+        }
+
+        stop.addEventListener('click', arret);
+        function arret() {
+            clearInterval(tempsReel);
+        }
+
+// jeu de couleurs
+        var body = document.body;
+        var btn = document.getElementById('btn');
+
+        btn.addEventListener('click', couleur);
+
+        function couleur() {
+            setTimeout((function() { body.style.backgroundColor = '#3BA'}), 200);
+            setTimeout((function() { body.style.backgroundColor = '#4AB'}), 400);
+            setTimeout((function() { body.style.backgroundColor = '#59B'}), 600);
+            setTimeout((function() { body.style.backgroundColor = '#66B'}), 800);
+            setTimeout((function() { body.style.backgroundColor = '#63B'}), 1000);
+            setTimeout((function() { body.style.backgroundColor = '#83A'}), 1200);
+            setTimeout((function() { body.style.backgroundColor = '#A3A'}), 1400);
+            setTimeout((function() { body.style.backgroundColor = '#A59'}), 1600);
+            setTimeout((function() { body.style.backgroundColor = '#A77'}), 1800);
+            setTimeout((function() { body.style.backgroundColor = '#995'}), 2000);
+        }
+    </script>
+</body>
+</html>

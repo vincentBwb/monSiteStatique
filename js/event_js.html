@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Les évènements</title>
+    </head>
+    <body>
+        <h1>Les évènements</h1>
+        <p>Cliquez moi !</p>
+        <p onclick="alert('bravo');">Cliquez moi !</p> 
+        <p onclick="this.textContent='Merci !'">Cliquez moi aussi !</p>  
+        <p>Cliquez moi c est important !</p>
+        <P>Cliquez moi ! Méthode addEventListener</P>
+        <p>Un premier <strong>paragraphe</strong></p>
+        <p>Passez sur moi</p>
+        
+
+        <script>
+            var p1 = document.querySelector('p');
+            
+            p1.onclick = function() {
+                this.innerHTML = '<strong>Bravo !</strong>';
+                this.style.color = 'orange';
+            };
+// autre exemple :                        ************ IMPORTANT ************
+        // au lieu de déclencher une fonction anonyme sur le click. Ici j appelle la focntion bravo mais SANS LES PARENTHESES pour qu elle 
+        // s excecute au moment du click               
+            var p4 = document.querySelectorAll('p')[3];
+
+            p4.onclick = bravo;
+            function bravo() {
+                this.innerHTML = '<strong>Bravo !</strong>';
+                this.style.color = 'orange';
+            }; 
+
+// Méthode AddEventListener
+            var p3 = document.querySelectorAll('p')[4];
+            // p3.addEventListener('click', bravo);
+            
+            p3.addEventListener('click', function() {
+                this.innerHTML = '<strong>Bravo !</strong>';
+                this.style.color = 'orange';
+            });
+
+            // p3.addEventListener('click', changeTexte);
+            function changeTexte() {
+                this.innerHTML = '<strong>Bravo !</strong>';
+                this.style.color = 'orange';
+            }
+
+// passez sur moi 
+            var p7 = document.querySelectorAll('p')[6];
+
+            p7.addEventListener('mouseover', fonction1);
+            p7.addEventListener('mouseout', reset1);
+            p7.addEventListener('mousedown', fonction2);
+            p7.addEventListener('mouseup', reset2);
+
+            function fonction1() {
+                this.innerHTML = 'Cliquez moi maintenant';
+                this.style.backgroundColor = 'orange';
+            }
+
+            function reset1() {
+                this.innerHTML = 'Passez sur moi';
+                this.style.backgroundColor = '';
+            }
+            
+            function fonction2() {
+                this.innerHTML = 'Bravo';
+                this.style.color = '#26C';
+                this.style.fontWeight = 'bold';
+                this.style.fontSize = '24px';
+            }
+            
+            function reset2() {
+                this.innerHTML = 'Passez sur moi';
+                this.style.color = '';
+                this.style.fontWeight = '';
+                this.style.fontSize = '';
+            }
+
+        </script>
+        
+    </body>
+</html>

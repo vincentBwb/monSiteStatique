@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gestion d'erreurs</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>La gestion d'erreurs</h1>
+        <label for="nb">Entrez un nombre entre 1 et 10 : </label>
+        <input type="number" min="1" max="10" id="nb" name="nombre">
+        <button type="button" id="test">Valider</button>
+        <p id="msg"></p>
+
+        <script>
+            var b = document.getElementById('test');
+            b.addEventListener('click', testValeur);
+
+            function testValeur() {
+                var p = document.getElementById('msg');
+                var x = document.getElementById('nb').value;
+
+                try {
+                    if ((isNaN(x)) || (x == '')) {
+                        throw 'vous n\'avez pas rentré de nombre valide';
+                    }
+                    else if ((x<1) || (x>10)) {
+                        throw 'valeur trop grande ou trop petite';
+                    }
+                    else {
+                        msg.innerHTML = 'Nombre ok';
+                    }
+                }
+                // recupere si il y a une erreur et execute ce bloc
+                catch(e) {
+                    msg.innerHTML = e;
+                }
+                // efface la valeur inscrite avant l envoi en reinitialisant la valeur du champs en ciblant l id et non la variable x ! 
+                finally {
+                    document.getElementById('nb').value = '';
+                }
+            }
+
+        </script>
+    </body>
+</html>
